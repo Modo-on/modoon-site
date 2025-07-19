@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modoon - Tienda de Tecnología</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Modoon Tech</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#carrito">Carrito</a></li>
+                    <li><a href="#creador">Conocer al creador</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h2>Innovación y tecnología al alcance de tu mano</h2>
+            <p>Los mejores productos con envío a todo el país.</p>
+        </div>
+    </section>
+
+    <section id="catalogo" class="catalogo-section">
+        <div class="container">
+            <h2>Catálogo de Productos</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Productos cargados con JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="carrito" class="carrito-section">
+        <div class="container">
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: $<span id="cartTotal">0</span></strong>
+            </div>
+            <button id="btnCheckout">Finalizar Compra</button>
+        </div>
+    </section>
+
+    <section id="creador" class="creador-section">
+        <div class="container">
+            <h2>Conocer al creador</h2>
+            <div class="creador-content">
+                <img src="https://via.placeholder.com/150" alt="Foto del creador" />
+                <div class="creador-info">
+                    <h3>Lautaro Ojeda</h3>
+                    <p>Apasionado por la tecnología y el desarrollo web. Fundador de Modoon Tech, comprometido en ofrecer productos de calidad y excelente atención al cliente.</p>
+                    <p>Contacto: <a href="mailto:lautadah@gmail.com">lautadah@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto-section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <form id="contactForm">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required />
+                <label for="email">Email:</label>
+                <input type="email" id="email" required />
+                <label for="message">Mensaje:</label>
+                <textarea id="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Modoon Tech | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
