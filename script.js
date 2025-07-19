@@ -1,4 +1,3 @@
-
 const products = [
     {
         id: 1,
@@ -109,13 +108,41 @@ function removeItem(id) {
     renderCart();
 }
 
-// Finalizar compra (simulación)
+// Finalizar compra (simulación + abrir mail y whatsapp)
 btnCheckout.addEventListener('click', () => {
     if (cart.length === 0) {
         alert('Tu carrito está vacío');
         return;
     }
-    alert('Gracias por tu compra. ¡Pronto nos contactaremos contigo!');
+
+    // Crear texto resumen para email y WhatsApp
+    let resumen = 'Compra realizada:%0A'; // %0A es salto de línea en URL
+    let total = 0;
+
+    cart.forEach(item => {
+        resumen += `${item.name} - Cantidad: ${item.quantity} - Precio unitario: $${item.price.toLocaleString()}%0A`;
+        total += item.price * item.quantity;
+    });
+
+    resumen += `%0ATotal: $${total.toLocaleString()}%0AGracias por comprar en Modoon!`;
+
+    // Enlace mailto
+    const email = 'lautadah@gmail.com';
+    const subject = encodeURIComponent('Nueva compra en Modoon');
+    const body = resumen;
+
+    const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    // Enlace WhatsApp
+    const phone = '5492604317434'; // +54 Argentina código país y código área sin 0
+    const whatsappLink = `https://wa.me/${phone}?text=${resumen}`;
+
+    // Abrir correo y whatsapp en pestañas nuevas
+    window.open(mailtoLink, '_blank');
+    window.open(whatsappLink, '_blank');
+
+    alert('Se abrirá el cliente de correo y WhatsApp para confirmar el envío de tu compra.');
+
     cart = [];
     renderCart();
 });
